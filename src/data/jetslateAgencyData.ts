@@ -284,7 +284,7 @@ export const JETSLATE_CASE_STUDIES: CaseStudy[] = [
     challenge: 'A high-traffic e-commerce store was suffering from 4.2s page load times, failing Google Core Web Vitals, and losing 60%+ of mobile shoppers at checkout.',
     solution: 'Jet Slate replaced bloated third-party page builders with custom Kadence Gutenberg components, configured Redis object caching, and rebuilt the checkout flow.',
     result: 'Google Core Web Vitals passed across 100% of URLs. Revenue jumped 34% within the first 30 days of deployment.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/images/hero-neural-core.jpg',
     tags: ['Kadence Pro', 'Speed Optimization', 'Core Web Vitals', 'WooCommerce']
   },
   {
@@ -300,7 +300,7 @@ export const JETSLATE_CASE_STUDIES: CaseStudy[] = [
     challenge: 'The client had an unstable WordPress setup with dozens of custom functions directly written in parent themes, which repeatedly crashed during core updates.',
     solution: 'Jet Slate re-engineered their entire design into a modular clean-code architecture with isolated hooks, custom templates, and automated Git deployments.',
     result: 'Zero downtime across 12 consecutive core updates and a lightning-fast responsive experience on all mobile devices.',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/images/showcase-enterprise-saas.jpg',
     tags: ['Enterprise WP', 'PHP 8.2', 'Clean Code', 'Multi-Site']
   },
   {
@@ -316,7 +316,7 @@ export const JETSLATE_CASE_STUDIES: CaseStudy[] = [
     challenge: 'Manual extraction of market listings and competitor pricing was costing the research team 40+ hours per week with high human error rates.',
     solution: 'Jet Slate deployed an automated Python scraping engine with NLP categorization, anomaly detection, and automated WordPress dashboard feeds.',
     result: 'Real-time market insights delivered straight to the leadership team with zero manual labor.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/images/ai-workflow-mesh.jpg',
     tags: ['AI Solutions', 'Data Scraping', 'Machine Learning', 'Automation']
   }
 ];

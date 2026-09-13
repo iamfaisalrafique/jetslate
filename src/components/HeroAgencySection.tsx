@@ -35,6 +35,7 @@ export const HeroAgencySection: React.FC<HeroAgencySectionProps> = ({
   ]);
   const [projectTimeline, setProjectTimeline] = useState<'rush' | 'standard' | 'flexible'>('standard');
   const [carePlanAddon, setCarePlanAddon] = useState(true);
+  const [activeVisualIndex, setActiveVisualIndex] = useState(0);
 
   const toggleService = (id: string) => {
     setSelectedServiceIds((prev) =>
@@ -105,6 +106,100 @@ export const HeroAgencySection: React.FC<HeroAgencySectionProps> = ({
               <Zap className="w-4 h-4 text-bright_gold" />
               <span>Test Your Site Speed (Free)</span>
             </button>
+          </div>
+        </div>
+
+        {/* 3D Graphic Visual Showcase */}
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-2">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-bright_gold animate-ping" />
+              <span className="text-xs font-mono uppercase tracking-widest text-bright_gold font-bold">
+                Jet Slate 3D Visual Architecture Showcase
+              </span>
+            </div>
+
+            {/* Visual Switcher Tabs */}
+            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-onyx-100 border border-jet_black-400 text-xs">
+              {[
+                { title: 'AI Neural Core', idx: 0 },
+                { title: 'Autonomous Agents Lab', idx: 1 },
+                { title: 'Enterprise Cloud Matrix', idx: 2 }
+              ].map((tab) => (
+                <button
+                  key={tab.idx}
+                  onClick={() => setActiveVisualIndex(tab.idx)}
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
+                    activeVisualIndex === tab.idx
+                      ? 'bg-gold-gradient text-onyx-100 font-bold shadow-md shadow-bright_gold/20'
+                      : 'text-platinum-400 hover:text-platinum-900 hover:bg-jet_black-300'
+                  }`}
+                >
+                  {tab.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Master 3D Image Display Box */}
+          <div className="relative rounded-3xl overflow-hidden border-2 border-bright_gold/30 bg-onyx-100 shadow-2xl shadow-bright_gold/10 group">
+            {/* Ambient Lighting Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-onyx-300 via-transparent to-transparent pointer-events-none z-10" />
+
+            <div className="aspect-[16/9] w-full relative overflow-hidden bg-onyx-300">
+              <img
+                src={[
+                  '/assets/images/hero-neural-core.jpg',
+                  '/assets/images/ai-workflow-mesh.jpg',
+                  '/assets/images/showcase-enterprise-saas.jpg'
+                ][activeVisualIndex]}
+                alt={[
+                  'Jet Slate AI Neural Core 3D Graphic',
+                  'Autonomous AI Agents Laboratory 3D Graphic',
+                  'Enterprise Custom Software Cloud 3D Graphic'
+                ][activeVisualIndex]}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Floating Info Overlay */}
+            <div className="absolute bottom-0 inset-x-0 p-6 z-20 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 bg-gradient-to-t from-onyx-200/95 via-onyx-200/80 to-transparent backdrop-blur-sm border-t border-jet_black-400/80">
+              <div className="space-y-1 max-w-xl">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-bright_gold/20 border border-bright_gold/40 text-[11px] font-mono text-bright_gold font-bold">
+                  <span>
+                    {[
+                      '3D ART: JET SLATE NEURAL ARCHITECTURE',
+                      '3D ART: AUTONOMOUS AGENT MESH',
+                      '3D ART: HIGH-PERFORMANCE CLOUD MATRICES'
+                    ][activeVisualIndex]}
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-platinum-900 font-space">
+                  {[
+                    'AI Neural Core & Real-Time Intelligence Engine',
+                    'Autonomous Agent Ecosystems & Robotic Workflows',
+                    'Custom Enterprise Software & Next.js 15 Architectures'
+                  ][activeVisualIndex]}
+                </h3>
+                <p className="text-xs text-platinum-400">
+                  {[
+                    'Custom tailored AI models, LLM pipelines, and neural workflows rendered in high-fidelity obsidian and gold.',
+                    'Intelligent agents collaborating across tasks, reducing manual operations by 90% with precision accuracy.',
+                    'Zero-compromise high-speed architecture delivering 100/100 Core Web Vitals and edge scalability.'
+                  ][activeVisualIndex]}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => onOpenConsultation()}
+                  className="px-4 py-2.5 rounded-xl bg-gold-gradient hover:opacity-95 text-onyx-100 font-bold text-xs flex items-center gap-1.5 shadow-gold-glow cursor-pointer transition-all"
+                >
+                  <span>Build This For Your Brand</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
