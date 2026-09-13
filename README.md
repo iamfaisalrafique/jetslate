@@ -32,6 +32,26 @@ npm run build
 npm run start
 ```
 
+## 🐳 Docker & Coolify Deployment
+
+The application is containerized with Next.js 15 Standalone output and automatically published to GitHub Container Registry (GHCR).
+
+### Pull Pre-built Image
+```bash
+docker pull ghcr.io/iamfaisalrafique/jetslate:latest
+```
+
+### Run Locally with Docker
+```bash
+docker run -p 3000:3000 ghcr.io/iamfaisalrafique/jetslate:latest
+```
+
+### Deploy on Coolify
+1. In Coolify, create a new resource and choose **Docker Image**.
+2. Set Docker Image to `ghcr.io/iamfaisalrafique/jetslate:latest`.
+3. Set Exposed Port to `3000`.
+4. Deploy!
+
 ## 🛠 Features
 
 - **Dynamic Interactive Router**: Unified tab switching across Agency Overview, Services, Speed AI Lab, Portfolio, Team, and Contact sections.
