@@ -1,0 +1,26 @@
+<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Grotesk:wght@600;700&display=swap');
+    
+    .signature-faisal {
+      font-family: 'Kaushan Script', 'Brush Script MT', cursive, sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      fill: #0C5ADB;
+      text-anchor: middle;
+    }
+    
+    .subtitle-faisal {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      fill: #475569;
+      text-anchor: middle;
+    }
+  </style>
+
+  <text x="120" y="34" class="signature-faisal">Faisal</text>
+  <text x="120" y="50" class="subtitle-faisal">— FULL-STACK ENGINEER —</text>
+</svg>

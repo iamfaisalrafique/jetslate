@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <g transform="translate(10, 8)">
+    <rect width="22" height="22" rx="4" fill="#43B02A"/>
+    <text x="11" y="16" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="14" text-anchor="middle">Se</text>
+  </g>
+  <text x="44" y="25" fill="#111111" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18" letter-spacing="0.5">
+    Selenium
+  </text>
+</svg>

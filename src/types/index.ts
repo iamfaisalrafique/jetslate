@@ -1,3 +1,27 @@
+export interface CaseStudyData {
+  slug: string;
+  title: string;
+  category: string;
+  client: string;
+  year: string;
+  role: string;
+  techStack: string[];
+  image: string;
+  heroDesc: string;
+  executiveSummary: string;
+  phases: {
+    number: string;
+    name: string;
+    title: string;
+    summary: string;
+    deliverables: string[];
+    challenge: string;
+    solution: string;
+    outcome: string;
+  }[];
+  metrics: { label: string; value: string; detail: string }[];
+}
+
 export type ServiceCategory = 
   | 'all'
   | 'wordpress'
@@ -28,6 +52,33 @@ export interface AgencyService {
   targetAudience: string;
   subModules?: ServiceSubModule[];
   linkUrl?: string;
+  image?: string;
+}
+
+export interface Author {
+  slug: string;
+  name: string;
+  role: string;
+  bio: string;
+  avatar: string;
+  socials?: {
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+  };
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  author: Author;
+  category: string;
+  readingTime: string;
+  image?: string;
+  tags: string[];
 }
 
 export interface TeamMember {

@@ -55,7 +55,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-onyx-200 text-platinum-500 antialiased font-sans flex flex-col selection:bg-bright_gold selection:text-onyx-100">
+      <body className="min-h-screen bg-noir text-ivory antialiased font-sans flex flex-col selection:bg-antique_gold selection:text-noir">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2.5 focus:bg-[#C9A84C] focus:text-[#111111] focus:font-bold focus:rounded-md focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#C9A84C]"
+        >
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

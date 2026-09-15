@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <g transform="translate(6, 9)">
+    <circle cx="11" cy="11" r="10" fill="#0D9488"/>
+    <path d="M7 11C7 8 11 6 11 6C11 6 15 8 15 11C15 14 11 16 11 16C11 16 7 14 7 11Z" fill="#FFFFFF"/>
+  </g>
+  <text x="35" y="24" fill="#111111" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" letter-spacing="0.5">
+    UK Quran<tspan fill="#0D9488"> Acad.</tspan>
+  </text>
+</svg>

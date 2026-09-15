@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <g transform="translate(10, 8)">
+    <path d="M14.5 0L0 14.5L4.5 19L19 4.5H14.5Z" fill="#54C5F8"/>
+    <path d="M14.5 13.5L5.5 22.5L10 27L19 18H14.5Z" fill="#29B6F6"/>
+    <path d="M10 27L14.5 31.5H19L14.5 27L10 27Z" fill="#01579B"/>
+    <path d="M10 27L14.5 22.5L19 27L14.5 31.5L10 27Z" fill="#0288D1"/>
+  </g>
+  <text x="44" y="25" fill="#111111" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18" letter-spacing="0.5">
+    Flutter
+  </text>
+</svg>

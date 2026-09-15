@@ -3,79 +3,1906 @@
 @tailwind utilities;
 
 :root {
-  --onyx-100: #020303;
-  --onyx-200: #050505;
-  --onyx-300: #070808;
-  --onyx-400: #0a0b0b;
-  --onyx-500: #0b0c0c;
-  
-  --jet-black-200: #101214;
-  --jet-black-300: #191b1f;
-  --jet-black-400: #212429;
-  --jet-black-500: #2a2e34;
-  
-  --platinum-100: #2c2e32;
-  --platinum-400: #b7bac0;
-  --platinum-500: #e9eaec;
-  --platinum-900: #fbfbfb;
-  
-  --bright-gold: #9e721d;
-  --saffron: #78490a;
-  
-  --gold-gradient: linear-gradient(135deg, #a67916 0%, #684706 100%);
-  --kadence-indigo: #9e721d;
+  --background: #161616;
+  --foreground: #F8F5EF;
+  --font-primary: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-secondary: var(--font-urbanist), 'Urbanist', sans-serif;
 }
 
 body {
-  background-color: #050505;
-  color: #e9eaec;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.bg-gold-gradient {
-  background-image: linear-gradient(135deg, #a67916 0%, #684706 100%);
+/* Accessibility Skip Link � completely hidden unless focused */
+.sr-only:not(:focus):not(:active),
+a.sr-only:not(:focus):not(:active) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
 }
 
-.bg-gold-gradient-hover:hover {
-  background-image: linear-gradient(135deg, #b5851b 0%, #785208 100%);
+/* Ensure no header links inherit default browser blue */
+.header-style-one-wrapper a,
+.wpr-desktop-menu a {
+  color: #F8F5EF !important;
+  text-decoration: none !important;
 }
 
-/* Backward compatibility mapping to luxury dark gold */
-.bg-violet-gradient {
-  background-image: linear-gradient(135deg, #a67916 0%, #684706 100%);
+.container {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 
-.bg-violet-gradient-hover:hover {
-  background-image: linear-gradient(135deg, #b5851b 0%, #785208 100%);
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px !important;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px !important;
+  }
 }
 
-.text-kadence-indigo {
-  color: #9e721d;
+/* Base Body styling */
+body, body.home-bg, body.main-home {
+  background-color: #111111 !important;
+  color: #F8F5EF !important;
+  font-family: var(--font-primary);
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-font-smoothing: antialiased;
 }
 
-.border-kadence-indigo {
-  border-color: #9e721d;
+/* Core Blueprint Section Container (.section-inner) */
+.section-inner {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  position: relative !important;
+  background: #161616 !important;
+  border: 1px solid #2E2E2E !important;
 }
 
-.bg-kadence-indigo {
-  background-color: #9e721d;
+/* ==========================================================================
+   UNIVERSAL RESPONSIVE MEDIA & FLUID CONTAINER RULES (Mobile First)
+   ========================================================================== */
+img, svg, video, canvas, audio, iframe, embed, object {
+  max-width: 100% !important;
+  height: auto;
 }
 
-/* Custom luxury scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Horizontal scroll containment for code blocks, pre and tables */
+pre, code, table, .table-responsive, .table-responsive-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-::-webkit-scrollbar-track {
-  background: #050505;
+.table-responsive-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  display: block !important;
+  margin: 1.5rem 0 !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #212429;
-  border-radius: 4px;
+.table-responsive-wrapper table {
+  width: 100% !important;
+  border-collapse: collapse !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #78490a;
+/* Ensure Grid items and articles do not blow out past mobile viewport */
+.single-layout-grid,
+.single-layout-grid > *,
+article,
+.article-rich-content {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.article-rich-content img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+
+/* Fluid Blueprint Section Container overrides for mobile & tablet viewports */
+@media (max-width: 767px) {
+  .section-inner {
+    padding: 24px 16px !important;
+  }
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section-inner {
+    padding: 36px 24px !important;
+  }
+}
+
+.border-1 {
+  border: 1px solid #2E2E2E !important;
+}
+
+.bg-white {
+  background-color: #161616 !important;
+}
+
+.square-dot {
+  position: relative !important;
+}
+
+/* List resets */
+.list-unstyled {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+/* Grid & Row utility fallbacks */
+.row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-right: -12px !important;
+  margin-left: -12px !important;
+}
+.row > * {
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+}
+
+@media (max-width: 575px) {
+  .row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  .row > * {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.col-lg-6 {
+  flex: 0 0 auto !important;
+  width: 100% !important;
+}
+@media (min-width: 992px) {
+  .col-lg-6 {
+    width: 50% !important;
+  }
+}
+
+/* Universal Button Styles */
+.wpr-btn,
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.wpr-btn.btn-primary:hover,
+.btn-primary:hover {
+  opacity: 0.95 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   BLUEPRINT CORNER SQUARE DOTS (Crisp Royal Blue #C9A84C on all sections)
+   ========================================================================== */
+.square-shape {
+  position: absolute !important;
+  z-index: 10 !important;
+  width: 7px !important;
+  height: 7px !important;
+  background: #C9A84C !important;
+  border: 1px solid #C9A84C !important;
+  display: block !important;
+  pointer-events: none !important;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.75) !important;
+}
+
+.square-shape.top-left {
+  top: -3px !important;
+  left: -3px !important;
+}
+
+.square-shape.top-right {
+  top: -3px !important;
+  right: -3px !important;
+}
+
+.square-shape.bottom-left {
+  bottom: -3px !important;
+  left: -3px !important;
+}
+
+.square-shape.bottom-right {
+  bottom: -3px !important;
+  right: -3px !important;
+}
+
+/* Preserve Kaushan Script strictly for brand signature logo */
+.kaushan-brand,
+.brand-logo-script {
+  font-family: var(--font-kaushan), 'Kaushan Script', cursive !important;
+}
+
+/* ==========================================================================
+   TACTILE SOFT MINIMALIST DESIGN SYSTEM (Chat / History & Heart Rate Look)
+   ========================================================================== */
+
+/* Tactile Pill Switch Track (e.g. Chat / History pill) */
+.tactile-pill-track {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(241, 245, 249, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+  border-radius: 9999px !important;
+  padding: 6px !important;
+  box-shadow: 0 6px 24px -4px rgba(15, 23, 42, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+  gap: 6px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: auto !important;
+  max-width: fit-content !important;
+}
+
+/* Tactile Pill Button */
+.category-pill-btn,
+.tactile-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 22px !important;
+  border-radius: 9999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: #ded9cf !important;
+  background: #161616 !important;
+  border: 1px solid #2E2E2E !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03) !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+}
+
+.category-pill-btn:not(.active):hover,
+.tactile-pill-btn:not(.active):hover {
+  color: #C9A84C !important;
+  border-color: #383838 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Active Elevated Tactile Pill (Solid Vibrant Blue with Soft Glow) */
+.category-pill-btn.active,
+.tactile-pill-btn.active {
+  background: linear-gradient(135deg, #C9A84C 0%, #084BB8 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 6px 18px -2px rgba(201, 168, 76, 0.35), 0 2px 4px rgba(201, 168, 76, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+.category-pill-btn.active:hover,
+.tactile-pill-btn.active:hover {
+  color: #FFFFFF !important;
+  background: linear-gradient(135deg, #083E94 0%, #062F70 100%) !important;
+}
+
+.category-pill-btn .count-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #181818 !important;
+  color: #E8D6B3 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 1px 7px !important;
+  border-radius: 9999px !important;
+  min-width: 18px !important;
+  line-height: 1.4 !important;
+  transition: all 0.2s ease !important;
+}
+
+.category-pill-btn.active .count-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+/* Tactile Soft Surface Card (Like "Heart Rate" & Menu in screenshots) */
+.tactile-card,
+.about-bento-cell {
+  background: #161616 !important;
+  border-radius: 20px !important;
+  border: 1px solid #2E2E2E !important;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.tactile-card:hover,
+.about-bento-cell:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 36px -6px rgba(201, 168, 76, 0.08), inset 0 1px 0 #FFFFFF !important;
+  border-color: #383838 !important;
+}
+
+
+/* Header top bar rebrand */
+.header-style-one .header-top {
+  background-color: #C9A84C !important;
+}
+.header-style-one .header-top .text,
+.header-style-one .header-top .text span {
+  color: #fff !important;
+}
+
+/* Restore default inline display for template images to fix Tailwind layout centering conflicts */
+.wpr-brand-area .brand-wrapper img,
+.social ul li a img {
+  display: inline !important;
+}
+
+/* Honeypot spam-trap field — visually hidden but accessible to bots */
+.honeypot-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Custom Blog Content Styling */
+.blog-content p,
+.blog-content .text-body-2,
+.blog-content span {
+  font-size: 20px !important;
+}
+
+/* Hide tags, share button and comments from the blog content */
+.blog-content .entry-footer,
+.blog-content .tags-links,
+.blog-content .tf-social,
+.blog-content .comment-wrap,
+.blog-content .post-comment,
+.blog-content .d-flex.align-items-center.gap-12 {
+  display: none !important;
+}
+
+/* Fix sidebar text truncation (Table of contents / Recent posts) */
+.blog-sidebar .relatest-post-item .title {
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  white-space: normal !important;
+}
+
+/* ==========================================================================
+   DASHBOARD ISOLATION LAYER
+   The global template stylesheet (style.css) forces `html { font-size: 10px }`
+   plus aggressive uppercase/letter-spacing/transparent-button rules. Tailwind
+   sizes everything in `rem`, so without this reset the whole admin UI renders
+   at ~62% scale and the template hijacks headings, buttons and inputs.
+   These rules neutralise all of that whenever a `.dashboard-scope` is present.
+   ========================================================================== */
+
+/* 1. Restore a sane 16px root so Tailwind rem-based spacing is correct */
+html:has(.dashboard-scope) {
+  font-size: 16px !important;
+}
+html:has(.dashboard-scope) body {
+  background-color: #181818 !important;
+  background-image: none !important;
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+/* 2. Reset every element inside the dashboard to a neutral baseline so the
+      template's `.text`, heading and button rules cannot leak in */
+.dashboard-scope,
+.dashboard-scope *,
+.ds-root,
+.ds-root * {
+  box-sizing: border-box;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: inherit;
+}
+
+/* Neutralize template .text { font-size: 60px !important } rule inside dashboard */
+.dashboard-scope .text,
+.ds-root .text {
+  font-size: inherit !important;
+}
+
+/* 3. Headings inside the dashboard must NOT inherit the template's huge
+      uppercase sizing — let Tailwind utility classes fully control them */
+.dashboard-scope h1,
+.dashboard-scope h2,
+.dashboard-scope h3,
+.dashboard-scope h4,
+.dashboard-scope h5,
+.dashboard-scope h6 {
+  margin: 0;
+  font-weight: inherit;
+  line-height: 1.25;
+  color: inherit;
+}
+
+/* 4. Buttons/inputs/selects: strip template borders, backgrounds and
+      transitions so Tailwind styling shows exactly as authored */
+.dashboard-scope button,
+.dashboard-scope input,
+.dashboard-scope textarea,
+.dashboard-scope select,
+.dashboard-scope a {
+  font-family: inherit;
+  color: inherit;
+}
+.dashboard-scope button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.dashboard-scope input,
+.dashboard-scope textarea,
+.dashboard-scope select {
+  background-image: none !important;
+}
+.dashboard-scope a {
+  text-decoration: none;
+}
+.dashboard-scope img {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Rich-text (Tiptap) content inside the editor needs readable defaults */
+.dashboard-scope .ProseMirror {
+  min-height: 320px;
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #F8F5EF;
+  outline: none;
+}
+.dashboard-scope .ProseMirror h2 { font-size: 1.5rem; font-weight: 800; margin: 1.25rem 0 0.5rem; }
+.dashboard-scope .ProseMirror h3 { font-size: 1.25rem; font-weight: 700; margin: 1rem 0 0.5rem; }
+.dashboard-scope .ProseMirror p { margin: 0.5rem 0; }
+.dashboard-scope .ProseMirror ul { list-style: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
+.dashboard-scope .ProseMirror ol { list-style: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
+.dashboard-scope .ProseMirror blockquote {
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+  color: #ded9cf;
+  font-style: italic;
+  margin: 0.75rem 0;
+}
+.dashboard-scope .ProseMirror:focus { outline: none; }
+.dashboard-scope .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Hide scrollbars for clean sidebar UI */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* ==========================================================================
+   SERVICES 3-COLUMN MODERN GRID & PILL FILTERS (StitchMCP)
+   ========================================================================== */
+.services-bento-section {
+  position: relative;
+}
+
+.wpr-services-area .section-top-area,
+.services-bento-section .section-top-area {
+  padding: 40px 0 16px !important;
+}
+
+.category-filter-bar {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 auto 36px auto !important;
+  padding: 0 16px !important;
+  width: 100% !important;
+}
+
+.category-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  flex: 0 0 auto !important;
+  padding: 10px 22px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  border: 1px solid #2E2E2E !important;
+  background: #161616 !important;
+  color: #ded9cf !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+}
+
+.category-pill-btn:not(.active):hover {
+  border-color: #C9A84C !important;
+  color: #C9A84C !important;
+  background: #EFF6FF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(201, 168, 76, 0.12) !important;
+}
+
+.category-pill-btn.active {
+  background: #C9A84C !important;
+  color: #ffffff !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+.category-pill-btn.active:hover {
+  background: #083E94 !important;
+  color: #ffffff !important;
+  border-color: #083E94 !important;
+}
+
+.category-pill-btn .count-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  margin-left: 6px !important;
+  border-radius: 9999px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  background: rgba(15, 23, 42, 0.08) !important;
+  color: inherit !important;
+  transition: all 0.25s ease !important;
+}
+
+.category-pill-btn.active .count-badge {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 640px) {
+  .category-pill-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* 3-Column Service Grid */
+.services-3col-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  width: 100% !important;
+}
+
+@media (max-width: 1100px) {
+  .services-3col-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .services-3col-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.service-card-item {
+  position: relative !important;
+  background: #161616 !important;
+  border: 1px solid #2E2E2E !important;
+  border-radius: 20px !important;
+  padding: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.05) !important;
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+@media (max-width: 640px) {
+  .service-card-item {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+}
+
+.service-card-item:hover {
+  transform: translateY(-5px) !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 20px 40px -10px rgba(201, 168, 76, 0.14), 0 0 0 1px rgba(201, 168, 76, 0.2) !important;
+}
+
+.service-card-item .top-badge-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 16px !important;
+  gap: 8px !important;
+}
+
+.service-card-item .category-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: #C9A84C !important;
+}
+
+.service-card-item .price-tag {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #F8F5EF !important;
+  background: #181818 !important;
+  padding: 4px 12px !important;
+  border-radius: 9999px !important;
+  white-space: nowrap !important;
+}
+
+.service-card-item .card-title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-bottom: 10px !important;
+  color: #F8F5EF !important;
+}
+
+.service-card-item .card-desc {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #E8D6B3 !important;
+  margin-bottom: 18px !important;
+}
+
+.service-card-item .tech-stack-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-bottom: 18px !important;
+}
+
+.tech-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 3px 10px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  border-radius: 9999px !important;
+  background: #181818 !important;
+  color: #ded9cf !important;
+  transition: all 0.2s ease !important;
+}
+
+.service-card-item:hover .tech-badge {
+  background: rgba(201, 168, 76, 0.08) !important;
+  color: #C9A84C !important;
+}
+
+.service-card-item .deliverables-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 18px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.service-card-item .deliverables-list li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+  color: #ded9cf !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.service-card-item .deliverables-list li svg {
+  flex-shrink: 0 !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-top: 2px !important;
+  color: #C9A84C !important;
+}
+
+.service-card-item .card-bottom-action {
+  margin-top: auto !important;
+  padding-top: 18px !important;
+  border-top: 1px solid #2E2E2E !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.service-card-item .action-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #C9A84C !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.service-card-item .action-btn:hover {
+  color: #E8D6B3 !important;
+  transform: translateX(4px) !important;
+}
+
+.service-card-item .card-icon-preview {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #111111 !important;
+  border: 1px solid #2E2E2E !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.service-card-item:hover .card-icon-preview {
+  background: #C9A84C !important;
+  border-color: #C9A84C !important;
+}
+
+.service-card-item:hover .card-icon-preview img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Ensure Hero Centerpiece is completely borderless and floating */
+.wpr-banner-area .section-title .mid-icon,
+.wpr-banner-area .section-title .mid-icon .inner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   MODERN TECH STACK & CLIENTS MARQUEE
+   ========================================================================== */
+.modern-tech-marquee-section {
+  position: relative;
+}
+
+.tech-marquee-container {
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+  position: relative !important;
+  padding: 14px 0 !important;
+  width: 100% !important;
+}
+
+.tech-marquee-container::before,
+.tech-marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tech-marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #161616, rgba(22, 22, 22, 0));
+}
+
+.tech-marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #161616, rgba(22, 22, 22, 0));
+}
+
+.tech-marquee-track {
+  display: flex !important;
+  gap: 16px !important;
+  width: max-content !important;
+  animation: techMarqueeScroll 35s linear infinite !important;
+}
+
+.tech-marquee-track:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes techMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-brand-card {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 8px 18px !important;
+  background: #161616 !important;
+  border: 1px solid #2E2E2E !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  cursor: default !important;
+  text-decoration: none !important;
+}
+
+.tech-brand-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: #C9A84C !important;
+  box-shadow: 0 8px 20px -4px rgba(201, 168, 76, 0.18) !important;
+  background: #222222 !important;
+}
+
+.tech-brand-card .tech-icon-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  flex-shrink: 0 !important;
+}
+
+.tech-brand-card .tech-name {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #F8F5EF !important;
+  letter-spacing: -0.01em !important;
+}
+
+.tech-brand-card .tech-sub {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #E8D6B3 !important;
+  background: #181818 !important;
+  padding: 2px 8px !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.tech-brand-card:hover .tech-sub {
+  background: rgba(201, 168, 76, 0.1) !important;
+  color: #C9A84C !important;
+}
+
+.left-stack-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #C9A84C !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+  border: 1px solid rgba(201, 168, 76, 0.15) !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  margin-bottom: 0 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .left-stack-badge {
+    display: none !important;
+  }
+}
+
+.left-stack-badge .live-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 9999px !important;
+  background: #C9A84C !important;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.25) !important;
+}
+
+/* Service & Work Blueprint Card Hover Styles */
+.service-blueprint-card:hover {
+  border-color: #C9A84C !important;
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.1) !important;
+  transform: translateY(-4px);
+}
+.service-blueprint-card:hover .service-link-btn {
+  background: #C9A84C !important;
+  color: #FFFFFF !important;
+}
+
+.project-showcase-row:hover {
+  border-color: #C9A84C !important;
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.1) !important;
+}
+
+@media (max-width: 991px) {
+  .service-content-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .project-showcase-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Perfect Geometric Centering for Desktop Header Navigation with Solid White Card Background */
+.header-style-one-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  min-height: 74px !important;
+  padding: 0 !important;
+  margin-top: 14px !important;
+  background: #161616 !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  position: relative !important;
+  z-index: 20 !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03) !important;
+}
+
+.header-style-one-wrapper .left-area {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 24px !important;
+  border-right: 1px solid rgba(15, 23, 42, 0.1) !important;
+  flex-shrink: 0 !important;
+  background: #161616 !important;
+  position: relative !important;
+}
+
+.header-style-one-wrapper .button-area-start {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 24px !important;
+  border-left: 1px solid rgba(15, 23, 42, 0.1) !important;
+  flex-shrink: 0 !important;
+  background: #161616 !important;
+  position: relative !important;
+}
+
+.header-style-one-wrapper .main-nav-area {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  background: #161616 !important;
+}
+
+@media (max-width: 1023px) {
+  .header-style-one-wrapper .main-nav-area {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-style-one-wrapper .menu-btn,
+  #menu-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header-style-one-wrapper .menu-btn,
+  #menu-btn {
+    display: flex !important;
+  }
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  list-style: none !important;
+  gap: clamp(14px, 1.5vw, 24px) !important;
+  height: 100% !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li a.main-element {
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  color: #F8F5EF !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  position: relative !important;
+  transition: color 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+/* Disable template default ::after on <a> */
+.main-nav-area ul.wpr-desktop-menu li a::after,
+.main-nav-area ul.wpr-desktop-menu li a.main-element::after {
+  display: none !important;
+  content: none !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li a.main-element span.nav-text {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  padding-bottom: 7px !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li a.main-element span.nav-text::after {
+  content: "" !important;
+  position: absolute !important;
+  display: block !important;
+  bottom: 0px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2.5px !important;
+  border-radius: 9999px !important;
+  background: #C9A84C !important;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li:hover span.nav-text::after,
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li.active span.nav-text::after {
+  width: 100% !important;
+}
+
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li:hover > a.main-element,
+.header-style-one-wrapper .main-nav-area ul.wpr-desktop-menu li.active > a.main-element {
+  color: #C9A84C !important;
+}
+
+/* =====================================================
+   UNIVERSAL SECTION SPACING — Consistent 20px gap
+   between every component block across all pages.
+   Prevents margin/padding stacking from nested elements.
+   ===================================================== */
+
+/* Header bottom gap — same 20px as every other section */
+header.header-style-one {
+  margin-bottom: 20px !important;
+  padding-bottom: 0 !important;
+}
+
+/* All top-level page sections and .mb--16 get exactly 20px bottom margin, zero top */
+.mb--16,
+main > section,
+main > div,
+main > .wpr-banner-area,
+main > .breadcrumb-area,
+main > .modern-tech-marquee-section,
+main > .wpr-working-process,
+main > .wpr-hero-area,
+main > footer {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Core Blueprint Section Container (.section-inner) */
+.section-inner {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 48px 48px;
+  position: relative;
+  background: #161616;
+}
+
+/* Specific compact containers */
+.wpr-brand-area .section-inner,
+.modern-tech-marquee-section .section-inner {
+  padding: 16px 24px !important;
+}
+
+/* BrandMarquee / Tech Stack section */
+.wpr-brand-area {
+  padding: 0 !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.modern-tech-marquee-section {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  padding: 0 !important;
+}
+
+
+/* WorkingProcess section */
+.wpr-working-process {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Banner areas inside case study etc */
+.wpr-banner-area {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  padding: 0 !important;
+}
+
+/* FAQ, CTA, and other common sections */
+.wpr-faq-area,
+.cta-area,
+.wpr-cta-area {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Remove decorative striped bottom shape divider everywhere */
+.bottom-shape-area {
+  display: none !important;
+}
+
+/* =====================================================
+   SITE-WIDE MOBILE RESPONSIVENESS & TOUCH OPTIMIZATION
+   ===================================================== */
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive Table Scroller */
+.table-responsive-wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  border-radius: 12px !important;
+  scrollbar-width: thin;
+  scrollbar-color: #383838 transparent;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 9999px;
+}
+
+/* Tablet & Mobile Layout Adaptations (<= 991px) */
+@media (max-width: 991px) {
+  .header-style-one-wrapper {
+    padding: 8px 0 !important;
+    min-height: 60px !important;
+  }
+  .header-style-one-wrapper .left-area {
+    padding: 8px 12px !important;
+  }
+  .header-style-one-wrapper .button-area-start {
+    padding: 8px 12px !important;
+    gap: 10px !important;
+  }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .section-inner {
+    padding: 30px 20px !important;
+  }
+
+  .square-shape {
+  position: absolute !important;
+  z-index: 10 !important;
+  width: 7px !important;
+  height: 7px !important;
+  background: #C9A84C !important;
+  border: 1px solid #C9A84C !important;
+  display: block !important;
+  pointer-events: none !important;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.75) !important;
+}
+
+  .service-blueprint-card {
+    padding: 24px 18px !important;
+  }
+
+  /* Compact typography on mobile */
+  h1 {
+    font-size: clamp(24px, 6.5vw, 36px) !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: clamp(20px, 5.5vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Full width action buttons on mobile */
+  .mobile-w-full {
+    width: 100% !important;
+  }
+}
+
+/* Project Showcase Row & Case Study Card Styles */
+.project-showcase-row {
+  grid-template-columns: 1.15fr 1fr;
+}
+
+@media (max-width: 860px) {
+  .project-showcase-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .case-study-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Small Smartphone Screens (<= 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .section-inner {
+    padding: 22px 14px !important;
+  }
+
+  .header-style-one-wrapper .button-area-start .wpr-btn {
+    padding: 8px 12px !important;
+    font-size: 11.5px !important;
+  }
+
+  .header-top {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   ARTICLE RICH CONTENT (In-Article Images, Links, Headings, Tables & Code)
+   ========================================================================== */
+.article-rich-content a {
+  color: #C9A84C !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  transition: color 0.15s ease !important;
+}
+
+.article-rich-content a:hover {
+  color: #E8D6B3 !important;
+  text-decoration: underline !important;
+}
+
+.article-rich-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 28px auto !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+  border: 1px solid #2E2E2E !important;
+}
+
+.article-rich-content figure {
+  margin: 32px 0 !important;
+  text-align: center !important;
+}
+
+.article-rich-content figcaption {
+  font-size: 13.5px !important;
+  color: #E8D6B3 !important;
+  margin-top: 10px !important;
+  font-style: italic !important;
+}
+
+.article-rich-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 28px 0 !important;
+  font-size: 14.5px !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.article-rich-content th {
+  background: #0F172A !important;
+  color: #FFFFFF !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  border: 1px solid #334155 !important;
+  font-weight: 700 !important;
+}
+
+.article-rich-content td {
+  padding: 12px 16px !important;
+  border: 1px solid #2E2E2E !important;
+}
+
+.article-rich-content h2 {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: #F8F5EF !important;
+  margin: 40px 0 16px 0 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.article-rich-content h3 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #F8F5EF !important;
+  margin: 32px 0 14px 0 !important;
+}
+
+.article-rich-content ul,
+.article-rich-content ol {
+  padding-left: 24px !important;
+  margin: 20px 0 !important;
+}
+
+.article-rich-content li {
+  margin-bottom: 8px !important;
+}
+
+/* ==========================================================================
+   VISIBILITY & PILL BUTTON SAFETY OVERRIDES
+   ========================================================================== */
+.wow {
+  visibility: visible !important;
+}
+
+.service-card-item,
+.services-3col-grid .service-card-item {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.category-filter-bar button,
+.category-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  flex: 0 0 auto !important;
+}
+
+/* ==========================================================================
+   FOOTER MINIMAL & TIGHT LINK SPACING
+   ========================================================================== */
+.wpr-footer-area .footer-main-grid ul,
+.footer-link-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.wpr-footer-area .footer-main-grid ul li,
+.wpr-footer-area ul li,
+.footer-link-list li {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.35 !important;
+}
+
+.wpr-footer-area .footer-main-grid ul li a,
+.footer-link-list li a {
+  padding: 1px 0 !important;
+  line-height: 1.35 !important;
+  display: inline-block !important;
+  font-size: 13px !important;
+  color: #ded9cf !important;
+  transition: color 0.15s ease !important;
+}
+
+.wpr-footer-area .footer-main-grid ul li a:hover,
+.footer-link-list li a:hover {
+  color: #C9A84C !important;
+}
+
+/* Floating Back-to-Top Button */
+.floating-back-to-top-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.floating-back-to-top-btn:hover {
+  background: #0947af !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.55), 0 2px 8px rgba(15, 23, 42, 0.2) !important;
+}
+
+@media (max-width: 991px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+}
+
+/* ===================================================
+   EXTRACTED COMPONENT STYLES FOR ZERO-JS RSC HYDRATION
+   =================================================== */
+
+/* Hero */
+@keyframes beaconGlow {
+  0% { transform: scale(0.9); opacity: 0.85; }
+  50% { transform: scale(1.3); opacity: 0.4; }
+  100% { transform: scale(0.9); opacity: 0.85; }
+}
+.live-status-beacon {
+  animation: beaconGlow 2s infinite ease-in-out;
+  will-change: transform, opacity;
+}
+.hero-theme-tech-card:hover {
+  border-color: #C9A84C !important;
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.1) !important;
+  transform: translateY(-2px);
+}
+.hero-theme-btn-primary:hover {
+  background: #083E94 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.5) !important;
+}
+.hero-theme-btn-secondary:hover {
+  border-color: #C9A84C !important;
+  color: #C9A84C !important;
+  transform: translateY(-2px);
+}
+@media (max-width: 520px) {
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .hero-theme-btn-primary,
+  .hero-theme-btn-secondary {
+    width: 100% !important;
+  }
+}
+
+/* About */
+@media (max-width: 991px) {
+  .about-left-col,
+  .about-right-col {
+    grid-column: span 12 !important;
+  }
+}
+@media (max-width: 575px) {
+  .about-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+.about-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(201, 168, 76, 0.08) !important;
+  border-color: #383838 !important;
+}
+
+/* Marquee */
+.architectural-marquee-track {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 20px;
+}
+.marquee-content-row {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 20px;
+  animation: smoothScroll 35s linear infinite;
+}
+.marquee-pill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: #111111;
+  border: 1px solid #2E2E2E;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C9A84C;
+  display: inline-block;
+}
+.marquee-text {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #F8F5EF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@keyframes smoothScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 20px)); }
+}
+.architectural-marquee-track:hover .marquee-content-row {
+  animation-play-state: paused;
+}
+
+/* WhyChooseUs */
+.bento-card:hover {
+  border-color: #C9A84C !important;
+  box-shadow: 0 12px 32px -4px rgba(201, 168, 76, 0.12) !important;
+  transform: translateY(-2px);
+}
+@media (max-width: 991px) {
+  .bento-card {
+    grid-column: span 12 !important;
+  }
+}
+
+/* PricingPlans */
+.pricing-plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(201, 168, 76, 0.15) !important;
+}
+.pricing-btn:hover {
+  background: #083E94 !important;
+  color: #FFFFFF !important;
+  border-color: #083E94 !important;
+  transform: translateY(-1px);
+}
+.custom-packages-btn:hover {
+  background: #083E94 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.4) !important;
+}
+
+/* Cta */
+.cta-btn-primary:hover {
+  background: #083E94 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.45) !important;
+}
+.cta-btn-secondary:hover {
+  border-color: #C9A84C !important;
+  color: #C9A84C !important;
+  transform: translateY(-2px);
+}
+
+/* BrandLogo */
+.brand-logo-link:hover .brand-logo-mark {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(201, 168, 76, 0.3) !important;
+}
+.brand-logo-link:hover .brand-last-name {
+  color: #084BB8 !important;
+}
+
+/* ==========================================================================
+   AUTHOR PROFILE PAGE — Responsive Blueprint Theme
+   ========================================================================== */
+@media (max-width: 768px) {
+  .author-profile-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    text-align: center;
+  }
+  .author-profile-grid > div:first-child {
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   BLOG & GUIDES ARCHIVE STYLES
+   ========================================================================== */
+.blog-article-card:hover {
+  border-color: #C9A84C !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(201, 168, 76, 0.08) !important;
+}
+.blog-article-card:hover .article-card-image {
+  transform: scale(1.04);
+}
+.blog-article-card:hover .article-title-link {
+  color: #C9A84C !important;
+}
+@media (max-width: 991px) {
+  .blog-layout-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 640px) {
+  .blog-article-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   AUTHENTIC THEME CTA STYLES
+   ========================================================================== */
+.wpr-cta-area .arrow-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  width: 110px;
+  top: 48px;
+}
+.wpr-cta-area .arrow-track.right {
+  right: -30px;
+}
+.wpr-cta-area .arrow-track.left {
+  left: -30px;
+  justify-content: flex-end;
+}
+.wpr-cta-area .arrow-track .arrow {
+  height: 28px;
+  opacity: 0.2;
+  display: flex;
+  animation: fadeMove 1.2s infinite;
+}
+.wpr-cta-area .arrow-track.left .arrow:nth-child(1) { animation-delay: 0s; }
+.wpr-cta-area .arrow-track.left .arrow:nth-child(2) { animation-delay: 0.2s; }
+.wpr-cta-area .arrow-track.left .arrow:nth-child(3) { animation-delay: 0.4s; }
+
+.wpr-cta-area .arrow-track.right .arrow:nth-child(1) { animation-delay: 0.4s; }
+.wpr-cta-area .arrow-track.right .arrow:nth-child(2) { animation-delay: 0.2s; }
+.wpr-cta-area .arrow-track.right .arrow:nth-child(3) { animation-delay: 0s; }
+
+@keyframes fadeMove {
+  0% { opacity: 0.15; transform: scale(0.95); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+  100% { opacity: 0.15; transform: scale(0.95); }
+}
+
+.cta-spin-logo-link:hover img {
+  transform: rotate(90deg) scale(1.08);
+}
+
+@media (max-width: 991px) {
+  .wpr-cta-area .arrow-track {
+    display: none !important;
+  }
+  .wpr-cta-area .section-bottom-shape {
+    position: relative !important;
+    margin-top: 30px !important;
+  }
+  .wpr-cta-area .section-bottom-shape .tag {
+    position: static !important;
+    display: inline-block !important;
+    margin: 8px 6px !important;
+    font-size: 11px !important;
+  }
+  .wpr-cta-area .section-inner {
+    padding-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-action-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .cta-action-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-plan-card {
+    padding: 24px 18px !important;
+  }
+}
+
+
+
+/* Universal Client Luxury Palette Overrides */
+body, body.home-bg, body.main-home { 
+  background-color: #0C0C0C !important; 
+  color: #F8F5EF !important; 
+}
+
+.section-inner {
+  background: #161616 !important;
+  border-color: #2E2E2E !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+.square-shape {
+  position: absolute !important;
+  z-index: 10 !important;
+  width: 7px !important;
+  height: 7px !important;
+  background: #C9A84C !important;
+  border: 1px solid #C9A84C !important;
+  display: block !important;
+  pointer-events: none !important;
+  box-shadow: 0 0 8px rgba(201, 168, 76, 0.75) !important;
+}
+
+.bg-white { background-color: #161616 !important; }
+.border { border-color: #2E2E2E !important; }
+.text-slate-900, .text-gray-900 { color: #F8F5EF !important; }
+.text-slate-600, .text-gray-600 { color: #E8D6B3 !important; }
+.text-slate-500, .text-gray-500 { color: #bfb9ad !important; }
+.bg-slate-50, .bg-gray-50 { background-color: #161616 !important; }
+.bg-slate-100, .bg-gray-100 { background-color: #1e1e1e !important; }
+.border-slate-200, .border-gray-200 { border-color: #2E2E2E !important; }
+.border-slate-300, .border-gray-300 { border-color: #383838 !important; }
+
+/* ==========================================================================
+   ACCESSIBILITY (WCAG 2.1 AAA) & MULTILINGUAL / RTL SUPPORT
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid #C9A84C !important;
+  outline-offset: 3px !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #C9A84C !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.25) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .square-shape.top-left {
+  left: auto !important;
+  right: -3px !important;
+}
+
+html[dir="rtl"] .square-shape.top-right {
+  right: auto !important;
+  left: -3px !important;
+}
+
+html[dir="rtl"] .square-shape.bottom-left {
+  left: auto !important;
+  right: -3px !important;
+}
+
+html[dir="rtl"] .square-shape.bottom-right {
+  right: auto !important;
+  left: -3px !important;
 }

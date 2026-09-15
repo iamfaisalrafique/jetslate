@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <g transform="translate(10, 8)">
+    <circle cx="12" cy="12" r="10" fill="#2EAD33" fill-opacity="0.15"/>
+    <circle cx="12" cy="12" r="6" fill="#2EAD33"/>
+    <circle cx="20" cy="12" r="6" fill="#E24329" fill-opacity="0.8"/>
+  </g>
+  <text x="50" y="26" fill="#111111" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="700" font-size="17" letter-spacing="0.5">
+    Playwright
+  </text>
+</svg>

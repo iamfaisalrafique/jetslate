@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
+  <g transform="translate(10, 8)">
+    <circle cx="12" cy="12" r="11" fill="#1B1E2E"/>
+    <path d="M16 8H12C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16H16" stroke="#69D3A7" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <text x="44" y="25" fill="#111111" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18" letter-spacing="0.5">
+    Cypress
+  </text>
+</svg>
